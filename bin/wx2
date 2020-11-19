@@ -1,0 +1,73 @@
+#!/usr/bin/env node
+
+const chalk = require('chalk');
+const program = require('commander');
+const {resolve, join, dirname, basename} = require('path');
+const {version} = require(resolve(__dirname, '../package.json'));
+const transform = require('../src');
+const {isDirectory} = require('../src/util');
+
+function printHelp() {
+    console.log('');
+    console.log('  Examples:');
+    console.log('');
+    console.log('    交互式创建项目：');
+    console.log('    wx2 <entry-directory> <output-directory>');
+    console.log('');
+}
+
+
+function cleanCache() {
+    const homedir = require('os').homedir();
+    require('child_process').execSync(`rm -rf ${homedir}/.wx2`);
+    process.exit(1);
+}
+
+
+program
+    .version(version)
+    .usage('[options]')
+    .option('-c, --clean', '清除缓存')
+    .option('-t, --target', '确定转换小程序类型')
+    .option('-v, --version', version)
+    .on('--help', printHelp)
+    .parse(process.argv);
+
+if (program.clean) {
+    cleanCache();
+    process.exit();
+}
+
+if (!program.args.length) {
+    printHelp();
+    return;
+}
+
+
+function getDefaultDist(entry, target) {
+    const dir = dirname(entry);
+    const base = basename(entry);
+    return join(dir, base + '.wx2.' + target + '.output');
+}
+
+let target = 'swan';
+for (let i = 0; i < process.argv.length; i++) {
+    if (process.argv[i].indexOf('--target') > -1 || process.argv[i].indexOf('-t') > -1) {
+        target = process.argv[i].split('=')[1];
+    }
+}
+
+let [entry, dist, logFor] = program.args;
+
+entry = resolve(entry);
+
+if (!isDirectory(entry)) {
+    throw new Error('当前不支持转换单个文件，仅支持转换项目');
+}
+
+dist = dist ? resolve(dist) : getDefaultDist(entry, target);
+logFor = logFor ? resolve(logFor) : dist;
+
+transform({entry, dist, logFor, target}).catch(e => {
+    console.log(chalk.red('🚀    run error: ', e.message + '\n' + e.stack));
+});

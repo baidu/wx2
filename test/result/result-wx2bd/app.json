@@ -1,0 +1,54 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/extend/extend",
+        "pages/drawer/drawer",
+        "pages/my/my",
+        "pages/maps/maps"
+    ],
+    "subPackages": [
+        {
+            "root": "pages/basic-view/",
+            "pages": [
+                "color/color",
+                "button/button"
+            ]
+        },
+        {
+            "root": "pages/extend-view/",
+            "pages": [
+                "msgtips/msgtips",
+                "sticky/sticky",
+                "keyboard/keyboard"
+            ]
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#5677FC",
+        "navigationBarTitleText": "Thor UI",
+        "navigationBarTextStyle": "white",
+        "backgroundColorTop": "#fafafa",
+        "backgroundColorBottom": "#fafafa"
+    },
+    "tabBar": {
+        "color": "#aaaaaa",
+        "list": [
+            {
+                "pagePath": "pages/index1/index1",
+                "text": "code2"
+            }
+        ]
+    },
+    "_testEnv": {
+        "tabBar": {
+            "color": "#aaaaaa",
+            "list": [
+                {
+                    "pagePath": "pages/index1/index1",
+                    "text": "code2"
+                }
+            ]
+        }
+    }
+}

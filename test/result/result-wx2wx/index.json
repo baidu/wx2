@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "List": "/node_modules//node_modules/@baidu/tab/index",
+        "helloWorld": "/node_modules//node_modules//path/to/HelloWorld",
+        "tableHead": "/node_modules//node_modules//path/to/table_head",
+        "normal": "/node_modules//node_modules//path/to/normal",
+        "with1": "/node_modules//node_modules//path/to/with1"
+    },
+    "componentGenerics": {
+        "selectable": {
+            "default": "path/to/default/component"
+        }
+    },
+    "navigationBarBackgroundColor": "#000000"
+}

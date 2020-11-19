@@ -1,0 +1,70 @@
+<view wx:if="{{condition}}"></view>
+<view wx:if="{{condition}}" wx:for="5">test</view>
+<view wx:if="{{condition}}" wx:for="{{list}}" wx:for-item="namedItem" wx:for-index="namedIndex" wx:key="namedIndex">test</view>
+<view wx:for="{{list}}" wx:if="{{item}}">test</view>
+<template is="headTest" data="{{item}}" />
+<template is="head" data="{{...item}}" />
+<template data="{{...item}}" />
+<template is="head" data="{{name: 'hello'}}" />
+<view class='red {{flag ? "blue" : "yellow"}}'></view>
+<view wx:if= class="time"></view>
+<view wx:elif></view>
+<view style="top: {{flag ? \"20rpx\" : \"40rpx\"}}">hello</view>
+<input value="{{1}}"></input>
+<input value="1"></input>
+<textarea value="{{1}}"></textarea>
+<scroll-view scroll-top="{{0}}" scroll-left="{{0}}" scroll-into-view="{{test}}"></scroll-view>
+<movable-view x="{{1}}" y="{{1}}"></movable-view>
+<slider value="{{1}}"></slider>
+<List />
+<helloWorld />
+<tableHead />
+<normal />
+//我是一个评论
+<with1 />
+<import src="./components/test.wxml" />
+<view wx:></view>
+<view wx:='aaa'>test</view>
+<view wx:="aaa">test</view>
+<view class="test" style="background: url(//img0.sc115.com/uploads1/sc/jpgs/1510/apic15069_sc115.com.jpg)"></view>
+<button bindtap="ontap" bindtap="wewe">点击</button>
+
+<view wx:for="{{regions}}" wx:key="" wx:for-item="region"></view>
+
+<view wx:for="{{p,index in   infos}}" wx:key="index"></view>
+
+<wxs module="parse">
+    var some_msg = "hello world";
+    module.exports   = {
+        setStyle: function (item) {
+            var defaultBackColor = '#f7f7f7';
+            return 'background-color: ' + (item.background ? item.background : defaultBackColor) + '; color: ' + item.color + '; width: ' + item.width + 'px;';
+        },
+        setPosition: function (position) {
+            return 'transform: translateX(' + position.pageX + 'px);';
+        }
+    }
+</wxs>
+
+<wxs module="test" src='./index.wxs'></wxs>
+
+<template is="{{item % 2 == 0 ? 'evenTest' : 'oddTest'}}" data="{{item}}"/>
+<template is="{{item % 2 == 0 ? 'even' : 'odd'}}" data="{{item}}"/>
+<template is="testRun" data="{{item}}"/>
+<template name="testCamel"></template>
+
+<swan-env>
+    <view>
+        <text>我是百度小程序</text>
+        <input value="{{1}}"></input>
+        <input value="1"></input>
+    </view>
+</swan-env>
+
+<wx-env>
+    <view>
+        <text>我是微信小程序</text>
+        <input value="{{1}}"></input>
+        <input value="1"></input>
+    </view>
+</wx-env>

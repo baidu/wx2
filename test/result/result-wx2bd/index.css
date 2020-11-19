@@ -1,0 +1,10 @@
+@import "../new/radioItemLine/post-item-template.css";
+.backgroundImage1{
+    background-image: url(https://img0.sc115.com/uploads1/sc/jpgs/1510/apic15069_sc115.com.jpg);
+}
+.backgroundImage2{
+    background-image: url('https://img0.sc115.com/uploads1/sc/jpgs/1510/apic15069_sc115.com.jpg');
+}
+.backgroundImage3{
+    background-image: url("https://img0.sc115.com/uploads1/sc/jpgs/1510/apic15069_sc115.com.jpg");
+}

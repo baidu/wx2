@@ -1,0 +1,63 @@
+<view s-if="condition"></view>
+<view s-if="condition" s-for="item, index in 1,2,3,4,5">test</view>
+<view s-if="condition" s-for="namedItem, namedIndex in list" s-key="namedIndex">test</view>
+<view s-for="item, index in list"><block s-if="item">test</block></view>
+<template is="headTest" data="{{{item}}}" />
+<template is="head" data="{{{...item}}}" />
+<template data="{{{...item}}}" />
+<template is="head" data="{{{name: 'hello'}}}" />
+<view class='red {{flag ? "blue" : "yellow"}}'></view>
+<view s-if="false" class="time"></view>
+<view s-elif="false"></view>
+<view style="top: {{flag ? '20rpx' : '40rpx'}}">hello</view>
+<input value="{=1=}" />
+<input value="1" />
+<textarea value="{=1=}"></textarea>
+<scroll-view scroll-top="{=0=}" scroll-left="{=0=}" scroll-into-view="{=test=}"></scroll-view>
+<movable-view x="{=1=}" y="{=1=}"></movable-view>
+<slider value="{=1=}"></slider>
+<list />
+<hello-world />
+<table-head />
+<normal />
+//我是一个评论
+<with1 />
+<import src="./components/test.swan" />
+<view></view>
+<view>test</view>
+<view>test</view>
+<view class="test" style="background: url(https://img0.sc115.com/uploads1/sc/jpgs/1510/apic15069_sc115.com.jpg)"></view>
+<button bindtap="ontap">点击</button>
+
+<view s-for="region, index in regions" s-key></view>
+
+<view s-for="item, index in infos" s-key="index"></view>
+
+<import-sjs module="parse">
+    var some_msg = "hello world";
+    module.exports   = {
+        setStyle: function (item) {
+            var defaultBackColor = '#f7f7f7';
+            return 'background-color: ' + (item.background ? item.background : defaultBackColor) + '; color: ' + item.color + '; width: ' + item.width + 'px;';
+        },
+        setPosition: function (position) {
+            return 'transform: translateX(' + position.pageX + 'px);';
+        }
+    }
+</import-sjs>
+
+<import-sjs module="test" src='./index.sjs'></import-sjs>
+
+<template is="{{item % 2 == 0 ? 'evenTest' : 'oddTest'}}" data="{{{item}}}" />
+<template is="{{item % 2 == 0 ? 'even' : 'odd'}}" data="{{{item}}}" />
+<template is="testRun" data="{{{item}}}" />
+<template name="testCamel"></template>
+
+
+    <view>
+        <text>我是百度小程序</text>
+        <input value="{=1=}" />
+        <input value="1" />
+    </view>
+
+
