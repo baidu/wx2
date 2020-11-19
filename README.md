@@ -59,7 +59,9 @@ owners:
 committers: 
 * zhouyixuan01@baidu.com
 * xujie07@baidu.com
+* wulinfei@baidu.com
 * zhanyongdong@baidu.com
+* dengxiaohong01@baidu.com
 * lijiaxuan02@baidu.com
 * wangshiyuan@baidu.com
 * lijinling03@baidu.com
