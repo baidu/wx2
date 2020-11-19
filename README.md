@@ -74,4 +74,11 @@ issues贡献： 如在使用中遇到问题，请在 https://github.com/baidu/wx
 
 ## 讨论
 
+微信扫描二维码，欢迎加入wx2技术交流群(添加下列管理员微信，并备注“wx2”，管理员会邀请您入群)：
+
+<img src="https://issuecdn.baidupcs.com/issue/netdisk/ts_ad/help/1605775336.jpg" width = "150" height = "150" alt="图片名称" />
+<img src="https://issuecdn.baidupcs.com/issue/netdisk/ts_ad/help/1605775338.jpg" width = "150" height = "150" alt="图片名称" />
+<img src="https://issuecdn.baidupcs.com/issue/netdisk/ts_ad/help/1605775340.jpg" width = "150" height = "150" alt="图片名称" />
+
+
 互转工具百度如流讨论群：3498775
