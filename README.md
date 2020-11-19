@@ -47,6 +47,10 @@ $ wx2 <微信小程序文件夹> <目标小程序文件夹> --target=qq
 npm run jest
 ```
 
+## 文档
+
+详细文档参见技术官网：https://pan.baidu.com/union/wx2/home#/
+
 ## 维护者
 
 owners: 
