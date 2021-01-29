@@ -88,3 +88,4 @@ issues贡献： 如在使用中遇到问题，请在 https://github.com/baidu/wx
 
 ## 版本更新（npm）
 * 1.0.18  支持了微信小程序代码直接对wx赋值或引用的转换情况。
+* 1.0.19  修复了setClipboardData转换问题。

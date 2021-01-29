@@ -1,6 +1,6 @@
 {
   "name": "wx2",
-  "version": "1.0.17",
+  "version": "1.0.19",
   "author": "wangpanfe",
   "bin": {
     "wx2": "bin/wx2"
