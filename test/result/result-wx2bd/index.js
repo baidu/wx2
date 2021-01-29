@@ -69,8 +69,8 @@ Component({
         value: ''
       }
     }
-});
-Component({
+  });
+  Component({
     'componentGenerics': {
       'selectable': {
         'default': 'path/to/default/component'
@@ -86,10 +86,10 @@ Component({
         value: ''
       }
     }
-});
-const url1 = e.currentTarget.dataset.coverimg;
-const url2 = e.currentTarget.dataset.coverimg;
-Page({
+  });
+  const url1 = e.currentTarget.dataset.coverimg;
+  const url2 = e.currentTarget.dataset.coverimg;
+  Page({
     onLoad() {
       this.Navbar = this.selectComponent('#Navbar');
       b = this.selectComponent('#btn1');
