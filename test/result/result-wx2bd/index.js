@@ -27,6 +27,7 @@ for (const key in wx) {
 while (wx) {
     console.log(`wx${key}:`, swan[key]);
 }
+
 swan.aaa = 111;
 swan['bbb'] = 222;
 swan[ccc] = 333;
