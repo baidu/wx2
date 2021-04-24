@@ -57,7 +57,7 @@ for (let i = 0; i < process.argv.length; i++) {
     }
 }
 
-let [entry, dist, logFor] = program.args;
+let [entry, dist, logFor, selfRules] = program.args;
 
 entry = resolve(entry);
 
@@ -68,6 +68,6 @@ if (!isDirectory(entry)) {
 dist = dist ? resolve(dist) : getDefaultDist(entry, target);
 logFor = logFor ? resolve(logFor) : dist;
 
-transform({entry, dist, logFor, target}).catch(e => {
+transform({entry, dist, logFor, target, selfRules}).catch(e => {
     console.log(chalk.red('🚀    run error: ', e.message + '\n' + e.stack));
 });

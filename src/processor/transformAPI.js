@@ -24,7 +24,6 @@ exports.transformApi = async function (context) {
     });
 
     const promise = files.map(async file => {
-
         const code = await exports.transformApiContent(file, context);
         await saveFile(file, code);
     });
@@ -36,7 +35,6 @@ exports.transformApi = async function (context) {
 exports.transformApiContent = async function transformApiContent(file, context) {
     const content = await getContent(file);
     const api = context.rules.api;
-
 
     const result = parse(content, {
         sourceType: 'module',

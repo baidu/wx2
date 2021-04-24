@@ -37,6 +37,49 @@ $ wx2 <微信小程序文件夹> <目标小程序文件夹> --target=wx
 $ wx2 <微信小程序文件夹> <目标小程序文件夹> --target=qq
 ```
 
+#### 日志输出
+```
+// 第三个参数为生成日志的文件夹地址
+$ wx2 <微信小程序文件夹> <目标小程序文件夹> <生成日志的文件夹> -t
+```
+
+#### 自定义转换
+```
+// 第四个参数为生成日志的自定义规则地址
+$ wx2 <微信小程序文件夹> <目标小程序文件夹> <生成日志的文件夹> <自定义规则地址> -t
+```
+
+自定义规则使用方法：
+1、新建自定义规则文件夹（文件夹名自定义），在文件夹下新建wx2.json文件，内部对象用于处理css,js,component,json,view等内置规则，示例如下:
+```
+{
+    "view": {
+        "backets": [
+            "s-if",
+            "s-elif",
+            "s-for"
+        ]
+    },
+    "component": {
+        "beviors": {
+            "swan://form-field": {
+                "mapping": "wx://form-field"
+            }
+        }
+    },
+    "js": {}
+    "json": {
+        "app.json": ["prefetches"]
+    },
+    "css": {}
+}
+```
+
+2、自定义对API处理的插件
+创建过程：需要在自定义规则文件夹下新建api文件夹，并在api下新建plugins文件夹，形如/api/plugins/（代码块的类型）/xxx.js
+代码块类型包括以下:
+'MemberExpression', 'CallExpression', 'ObjectProperty', 'StringLiteral', 'ExpressionStatement', 'ObjectMethod', 'ImportDeclaration', 'VariableDeclaration'
+
 ## 测试
 
 ### 测试方法
@@ -90,4 +133,5 @@ issues贡献： 如在使用中遇到问题，请在 https://github.com/baidu/wx
 ## 版本更新（npm）
 * 1.0.18  支持了微信小程序代码直接对wx赋值或引用的转换情况。
 * 1.0.19  修复了setClipboardData转换问题。
-* 1.0.20  增加LICENSE
+* 1.0.20  增加LICENSE。
+* 1.0.21  支持用户能自定义转换规则，用法见上 ”自定义转换“ 部分。
