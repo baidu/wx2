@@ -21,6 +21,7 @@ const Css = require('./processor/transformCss');
 const createTransformInfo = require('./processor/createTransformInfo');
 const progress = require('../src/util/progress');
 const utils = require('./util/index');
+const {getSelfRules} = require('./innerTool/rewriteRule');
 
 /**
  * 小程序互转的入口文件
@@ -29,9 +30,10 @@ const utils = require('./util/index');
  * @param {string} options.entry  互转的入口文件
  * @param {string=} options.dist  转换之后的地址
  * @param {string=} options.logFor  转换产生的日志地址
+ * @param {string=} options.selfRules  自定义规则地址
  * @param {string=} options.target  要转换的类型 如：wx2swan、wx2qq、swan2wx
  */
-module.exports = async function ({entry, dist, logFor, target}) {
+module.exports = async function ({entry, dist, logFor, target, selfRules}) {
     const TYPE = getType(target);
     const RULES_PATH = resolve(__dirname, '../rules/', TYPE);
 
@@ -53,8 +55,24 @@ module.exports = async function ({entry, dist, logFor, target}) {
         rules: getRules(RULES_PATH, TYPE),
         log: logInstance,
         Store,
+        selfRules,
         data: {}
     };
+
+    // 判断自定义规则是否存在，如果存在则进行规则merge
+    if (selfRules) {
+        let {plugin, baseRules} = getSelfRules(CONTEXT);
+        // 自定义规则处理
+        for (let item in CONTEXT.rules) {
+            baseRules[item]
+            && (CONTEXT.rules[item] = Object.assign(CONTEXT.rules[item], baseRules[item]));
+        }
+        // 自定义插件处理
+        for (let item in CONTEXT.rules.api.babelPlugins) {
+            plugin[item]
+            && (CONTEXT.rules.api.babelPlugins[item] = CONTEXT.rules.api.babelPlugins[item].concat(plugin[item]));
+        }
+    }   
 
     try {
         // 获取文件总数
